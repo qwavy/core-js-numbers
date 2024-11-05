@@ -50,7 +50,8 @@ function getCircleCircumference(/* radius */) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return ( value1 + value2 ) / 2
+  const sum = (value1 + value2) / 2;
+  return sum === Infinity ? Number.MAX_VALUE : sum;
 }
 
 /**
@@ -68,7 +69,7 @@ function getAverage(value1, value2) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(x1, y1, x2, y2) {
+function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
   throw new Error('Not implemented');
 }
 
@@ -197,12 +198,12 @@ function roundToPowerOfTen(/* num, pow */) {
  *   17 => true
  */
 function isPrime(n) {
-  for(let i = 2;i < n;i++){
-    if(n % i == 0){
-      return true
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) {
+      return true;
     }
   }
-  return false
+  return false;
 }
 
 /**
@@ -221,10 +222,10 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  if(!isNaN(value)){
-    return value
+  if (!Number.isNaN(value)) {
+    return value;
   }
-  return def
+  return def;
 }
 
 /**
@@ -238,8 +239,8 @@ function toNumber(value, def) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+  return num ** 3;
 }
 
 /**
@@ -512,8 +513,8 @@ function roundToLargestInteger(/* number */) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function roundToNearestInteger(/* number */) {
-  return Math.floor(number)
+function roundToNearestInteger(number) {
+  return Math.floor(number);
 }
 
 /**
@@ -527,8 +528,8 @@ function roundToNearestInteger(/* number */) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function getIntegerPartNumber(/* number */) {
-  return Math.ceil(number)
+function getIntegerPartNumber(number) {
+  return Math.ceil(number);
 }
 
 /**
@@ -543,8 +544,8 @@ function getIntegerPartNumber(/* number */) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  return x1 + x2 + x3
+function getSumOfNumbers(x1, x2, x3) {
+  return x1 + x2 + x3;
 }
 
 /**
@@ -559,8 +560,8 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
  * -5, -6 => -5
  * 0, 5   => 5
  */
-function getMaxNumber(/* firstNumber, secondNumber */) {
-  return Math.max(firstNumber,secondNumber)
+function getMaxNumber(firstNumber, secondNumber) {
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
@@ -575,8 +576,8 @@ function getMaxNumber(/* firstNumber, secondNumber */) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {
-  return Math.random(min,max)
+function getRandomInteger(min, max) {
+  return Math.random(min, max);
 }
 
 /**
@@ -606,15 +607,15 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  let count = 0
-  for(let i = 0;i < number;i++){
-    if(i % 2 !== 0){
-      count++
+function getCountOfOddNumbers(number) {
+  let count = 0;
+  for (let i = 0; i < number; i += 1) {
+    if (i % 2 !== 0) {
+      count += 1;
     }
   }
 
-  return count
+  return count;
 }
 
 module.exports = {
