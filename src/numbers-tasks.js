@@ -18,8 +18,8 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  return width * height;
 }
 
 /**
@@ -49,8 +49,8 @@ function getCircleCircumference(/* radius */) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  return ( value1 + value2 ) / 2
 }
 
 /**
@@ -68,7 +68,7 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
   throw new Error('Not implemented');
 }
 
@@ -505,7 +505,7 @@ function roundToLargestInteger(/* number */) {
  * -5.5 => -5
  */
 function roundToNearestInteger(/* number */) {
-  throw new Error('Not implemented');
+  return Math.floor(number)
 }
 
 /**
@@ -520,7 +520,7 @@ function roundToNearestInteger(/* number */) {
  * -5.5 => -5
  */
 function getIntegerPartNumber(/* number */) {
-  throw new Error('Not implemented');
+  return Math.ceil(number)
 }
 
 /**
@@ -536,7 +536,7 @@ function getIntegerPartNumber(/* number */) {
  * 0.1, 0.2, 0.3 => 0.6
  */
 function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+  return x1 + x2 + x3
 }
 
 /**
@@ -552,7 +552,7 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
  * 0, 5   => 5
  */
 function getMaxNumber(/* firstNumber, secondNumber */) {
-  throw new Error('Not implemented');
+  return Math.max(firstNumber,secondNumber)
 }
 
 /**
@@ -568,7 +568,7 @@ function getMaxNumber(/* firstNumber, secondNumber */) {
  * -1, 1 => -1 | 0 | 1
  */
 function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+  return Math.random(min,max)
 }
 
 /**
@@ -599,7 +599,14 @@ function getHypotenuse(/* a, b */) {
  * 15 => 8
  */
 function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+  let count = 0
+  for(let i = 0;i < number;i++){
+    if(i % 2 !== 0){
+      count++
+    }
+  }
+
+  return count
 }
 
 module.exports = {
