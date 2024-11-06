@@ -198,12 +198,15 @@ function roundToPowerOfTen(/* num, pow */) {
  *   17 => true
  */
 function isPrime(n) {
+  if (n === 2 || n === 3) {
+    return true;
+  }
   for (let i = 2; i < n; i += 1) {
-    if (n % i === 0) {
-      return true;
+    if (n % i === 0 && i !== n) {
+      return false;
     }
   }
-  return false;
+  return true;
 }
 
 /**
@@ -222,9 +225,8 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  if (!Number.isNaN(value)) {
-    return value;
-  }
+  const num = +value;
+  if (typeof num === 'number' && !Number.isNaN(num)) return num;
   return def;
 }
 
@@ -514,7 +516,7 @@ function roundToLargestInteger(/* number */) {
  * -5.5 => -5
  */
 function roundToNearestInteger(number) {
-  return Math.floor(number);
+  return Math.round(number);
 }
 
 /**
@@ -529,7 +531,7 @@ function roundToNearestInteger(number) {
  * -5.5 => -5
  */
 function getIntegerPartNumber(number) {
-  return Math.ceil(number);
+  return Math.trunc(number);
 }
 
 /**
@@ -590,8 +592,9 @@ function getRandomInteger(min, max) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  const val = Math.hypot(a, b);
+  return val === Infinity ? Number.MAX_VALUE : val;
 }
 
 /**
@@ -609,7 +612,7 @@ function getHypotenuse(/* a, b */) {
  */
 function getCountOfOddNumbers(number) {
   let count = 0;
-  for (let i = 0; i < number; i += 1) {
+  for (let i = 0; i <= number; i += 1) {
     if (i % 2 !== 0) {
       count += 1;
     }
